@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense">
+  <ExportSiteWizard>
+    <WizardForm CodeBeside="Sitecore.Support.XA.Feature.CreativeExchange.Wizards.ExportSiteWizard, Sitecore.Support.9142">
+      <style>
+        body {overflow:hidden;}
+        #inner-exceptions {display:none;}
+        #stack-trace {display:none;}
+        .toggle-details, .toggle-inner-exception {display:block;text-decoration:underline;}
+      </style>
+      <script type="text/javascript">
+        function toggleExcVisibility(id) {
+        var e = document.getElementById(id);
+        if(e.style.display == 'block')
+        e.style.display = 'none';
+        else
+        e .style.display = 'block';
+        }
+      </script>
+
+      <WizardFormPage ID="Settings" Header="Export settings" Text="Select the exporting settings. Click Next to proceed.">
+        <WizardFormPadding>
+            <Border Margin="0px 0px 8px 0px">
+              <Literal ID="ContextInfo" />
+            </Border>
+          <Scrollbox ID="SettingsPane" Border="none" Background="transparent">
+            <Groupbox ID="DevicePanel" Header="Device" Margin="8px 0px 8px 0px" Style="width: 350px;display:inline-block;vertical-align:top">
+              <Border ID="Devices" />
+            </Groupbox>
+            <Groupbox ID="ExportedContent" Header="Exported content" Margin="8px 0px 8px 0px" Style="width: 350px;display:inline-block;vertical-align:top">
+              <Border ID="ExportScope"/>
+            </Groupbox>
+            <Groupbox ID="LanguagesPanel" Header="Language" Margin="8px 0px 8px 0px" Style="width: 350px;display:inline-block;vertical-align:top">
+              <Border ID="Languages" />
+            </Groupbox>
+            <Groupbox ID="SitesPanel" Header="Site context" Margin="8px 0px 8px 0px" Style="width: 350px;display:inline-block;vertical-align:top">
+              <Border ID="Sites"/>
+            </Groupbox>
+            <Groupbox ID="BucketsPanel" Header="Pages in buckets" Margin="8px 0px 8px 0px" Style="width: 350px;display:inline-block;vertical-align:top">
+              <Border ID="Buckets"></Border>
+            </Groupbox>
+            <Groupbox ID="ModePanel" Header="Mode" Margin="8px 0px 8px 0px" Style="width: 350px;display:inline-block;vertical-align:top">
+              <Border ID="MarkupMode"/>
+            </Groupbox>
+            <Groupbox ID="StorageTypePanel" Header="Export to" Margin="8px 0px 8px 0px" Style="width: 350px;display:inline-block;vertical-align:top">
+              <Border ID="StorageType"></Border>
+            </Groupbox>
+            <Border Margin="8px 0px 8px 0px">
+              <Literal Text="Maximum size of a single file in exported package in KB (empty = no limit): "/>
+              <Edit ID="FileSizeLimit" size="8" ></Edit>
+            </Border>
+          </Scrollbox>
+        </WizardFormPadding>
+      </WizardFormPage>
+
+      <WizardFormPage ID="Exporting" Header="Exporting" Text="Please wait while exporting. This can take several minutes.">
+        <GridPanel Width="100%">
+          <Space Height="64"/>
+          <Border Align="center" GridPanel.Align="center">
+            <ThemedImage Src="Applications/48x48/export1.png" Width="48" Height="48" GridPanel.Align="center"/>
+          </Border>
+          <Space Height="16"/>
+          <Border Align="center" GridPanel.Align="center">
+            <ThemedImage Src="Images/progress.gif" Width="94" Height="17"/>
+          </Border>
+          <Space Height="16"/>
+          <Border Align="center" GridPanel.Align="center" GridPanel.Style="font-weight:bold">
+            <Literal Text="Exporting..."/>
+          </Border>
+          <Space Height="16"/>
+        </GridPanel>
+      </WizardFormPage>
+
+      <WizardFormPage ID="Results" Header="Results" Text="Review the exporting results. Click on a message to get more details. Click Next to proceed.">
+        <WizardFormPadding>
+          <GridPanel Width="100%" Height="100%" Fixed="true">
+            <Listview ID="MessageList" Background="window" GridPanel.Height="100%" Height="100%" Style="height:100%" Class="scScrollbox scFixSize scFixSizeNested" View="Details" MultiSelect="false">
+              <ListviewHeader>
+                <ListviewHeaderItem Header="Category" name="category"/>
+                <ListviewHeaderItem Header="Comment" name="comment"/>
+              </ListviewHeader>
+            </Listview>
+            <Scrollbox Background="window" GridPanel.Height="100%" Height="64px" Margin="8px 0px 0px 0px" Style="overlflow:visible;">
+              <Border ID="AdditionaInfo" Width="100%" Height="100%" GridPanel.Height="100%"/>
+            </Scrollbox>
+          </GridPanel>
+        </WizardFormPadding>
+      </WizardFormPage>
+
+      <WizardFormPage ID="LastPage" Header="Export complete">
+        <WizardFormPadding>
+          <Border ID="Success" Visible="false">
+            <Border Style="font-weight:bold" Margin="0px 0px 16px 0px">
+              <Literal Text="The export has succeeded."/>
+            </Border>
+          </Border>
+          <Border ID="Download" Visible="false">
+            <Border Margin="0px 0px 16px 0px">
+              <Literal Text="Please download the package using the button below."/>
+            </Border>
+            <Border Margin="0px 0px 16px 0px">
+              <Button Click="exportsite:download" Header="Download zipped site" />
+            </Border>
+          </Border>
+          <Border ID="Error" Visible="false">
+            <Border Style="font-weight:bold" Margin="0px 0px 16px 0px">
+              <Literal Text="The export has failed."/>
+            </Border>
+            <Border Margin="0px 0px 16px 0px">
+              <Literal Text="Please review the errors below."/>
+            </Border>
+            <Memo ID="ErrorMessage" ReadOnly="true" Width="100%" Height="200px" Margin="0px 0px 16px 0px"/>
+          </Border>
+          <Border Margin="0px 0px 16px 0px">
+            <Literal Text="Click 'Close' button  to close the wizard."/>
+          </Border>
+        </WizardFormPadding>
+
+      </WizardFormPage>
+
+    </WizardForm>
+  </ExportSiteWizard>
+</control>
