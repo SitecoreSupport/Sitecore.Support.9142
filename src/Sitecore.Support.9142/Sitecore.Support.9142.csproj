@@ -77,8 +77,8 @@
     <Compile Include="XA\Feature\CreativeExchange\Wizards\UIUtil.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="shell\Override\CreativeExchange\ExportSiteWizard.xml" />
-    <Content Include="shell\Override\CreativeExchange\ImportSiteWizard.xml" />
+    <Content Include="sitecore\shell\Override\CreativeExchange\ExportSiteWizard.xml" />
+    <Content Include="sitecore\shell\Override\CreativeExchange\ImportSiteWizard.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
